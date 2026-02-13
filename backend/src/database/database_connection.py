@@ -45,17 +45,15 @@ class DatabaseConnectionHandler:
     def create_connection(self) -> None:
         """Create connection with the database service"""
 
-        self._engine = create_engine(url=self._connection_string)
-        Session = sessionmaker(self._engine)
+        self.engine = create_engine(url=self._connection_string)
+        Session = sessionmaker(self.engine)
         self.session = Session()
 
     def close_connection(self) -> None:
         """Close connection with the database service"""
 
-        if self.session is not None:
+        if isinstance(self.session, Session):
             self.session.close()
-
-        self.engine = None
 
     def __enter__(self) -> Self:
         self.create_connection()
