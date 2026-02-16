@@ -1,0 +1,20 @@
+## Guia Rápido de utilização do Alembic - Migrações de bancos de dados
+
+### Como gerar migrações:
+```python
+uv run alembic revision --autogenerate -m "descrição"
+```
+
+### Como aplicar migrações:
+```python
+uv run alembic upgrade head
+```
+
+### Como reverter a última migração:
+```python
+uv run alembic downgrade -1
+```
+
+**OBS:** Caso não esteja utilizando o gerenciador de pacotes/ambiente **UV**, ou o ambiente virtual esteja ativado no terminal, não será necessário utilizar o prefixo "uv run" no início dos comandos.
+
+Para mais informações confira a [documentação](https://alembic.sqlalchemy.org/en/latest/index.html) oficial do alembic. 
