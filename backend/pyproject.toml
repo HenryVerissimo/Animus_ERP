@@ -16,6 +16,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     "alembic>=1.18.4",
+    "bandit>=1.9.3",
     "httpx>=0.28.1",
     "pre-commit>=4.5.1",
     "pytest>=9.0.2",
