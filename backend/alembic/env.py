@@ -11,6 +11,8 @@ from src.config.database_settings import DatabaseSettings
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
+
+my_models = project_models
 config = context.config
 db_conf = DatabaseSettings()  # type: ignore
 

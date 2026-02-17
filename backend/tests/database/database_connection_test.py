@@ -28,7 +28,7 @@ def test_create_connection_is_called_on_enter(
     spy = mocker.spy(get_database_connection_handler, "create_connection")
     database = get_database_connection_handler
 
-    with database as db:
+    with database:
         pass
 
     assert spy.call_count == 1
@@ -64,7 +64,7 @@ def test_create_connection_is_called_on_exit(
     spy = mocker.spy(get_database_connection_handler, "close_connection")
     database = get_database_connection_handler
 
-    with database as db:
+    with database:
         pass
 
     assert spy.call_count == 1
