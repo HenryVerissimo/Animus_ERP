@@ -27,6 +27,15 @@ jobs:
           uv sync --all-groups
       - name: Run Pytest
         run: uv run pytest . -s -v --cov -cov-fail-under=80
+        env:
+        # dummy database credentials to run the tests.
+          DB_DIALECT: "postgresql"
+          DB_DRIVER: "postgre_generic_driver"
+          DB_USERNAME: "UserTest"
+          DB_PASSWORD: "PasswordTest"
+          DB_HOST: "0.0.0.0"
+          DB_PORT: "5432"
+          DB_NAME: "SomeTestDatabase"
 
   linter:
     needs: tests
